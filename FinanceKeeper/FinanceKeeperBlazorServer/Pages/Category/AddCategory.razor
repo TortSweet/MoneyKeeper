@@ -1,0 +1,67 @@
+﻿@page "/financialcategory/addcategory"
+@page "/financialcategory/editcategory/{categoryId:int}"
+
+@using Microsoft.AspNetCore.Components
+@using FinanceKeeperBlazorServer.Data.Models
+@using FinanceKeeperBlazorServer.Services.Interfaces
+<h3>Add new category </h3>
+
+@inject NavigationManager NavigationManager
+
+<hr />
+<EditForm Model="@Category" OnValidSubmit="SaveCategory">
+    <DataAnnotationsValidator />
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <div class="col-md-4">
+            <InputText class="form-control" @bind-Value="Category.Name" />
+        </div>
+        <ValidationMessage For="@(() => Category.Name)" />
+    </div>
+    <div class="mb-3">
+        <label for="Type" class="form-label">Type</label>
+        <div class="col-md-4">
+            <InputSelect class="form-select" @bind-Value="Category.Type">
+                <option id="income" value="0">Income</option>
+                <option id="expense" value="1">Expense</option>
+            </InputSelect>
+        </div>
+        <ValidationMessage For="@(() => Category.Type)" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="btn btn-light" @onclick="Cancel">Cancel</button>
+    </div>
+</EditForm>
+@code {
+    [Parameter]
+    public int CategoryId { get; set; }
+    protected string Title = "Add";
+    protected FinancialCategory? Category = new();
+    [Inject] protected IBaseServices<FinancialCategory> BaseServices { get; set; } = null!;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (CategoryId != 0)
+        {
+            Title = "Edit";
+            Category = await BaseServices.GetByIdAsync(CategoryId);
+        }
+    }
+    protected async Task SaveCategory()
+    {
+        if (Category?.CategoryId != 0)
+        {
+            if (Category != null) await BaseServices.UpdateAsync(Category);
+        }
+        else
+        {
+            await BaseServices.CreateAsync(Category);
+        }
+        Cancel();
+    }
+    public void Cancel()
+    {
+        NavigationManager.NavigateTo("/financialcategory");
+    }
+}

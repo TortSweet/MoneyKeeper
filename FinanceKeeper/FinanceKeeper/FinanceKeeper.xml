@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FinanceKeeper</name>
+    </assembly>
+    <members>
+        <member name="M:FinanceKeeper.Controllers.FinancialCategoryController.CreateCategoryAsync(FinanceKeeper.Dtos.FinancialCategoryDto)">
+            <summary>
+            Create new entry about category into DB
+            </summary>
+            <param name="category">Entry of Category</param>
+            <returns>Return response than entry were write</returns>
+        </member>
+        <member name="M:FinanceKeeper.Controllers.FinancialCategoryController.UpdateCategoryAsync(FinanceKeeper.Dtos.FinancialCategoryDto)">
+            <summary>
+            Updates an existing entry of category in the DB
+            </summary>
+            <param name="category">Entry of Category</param>
+            <returns>Updated entry of category</returns>
+        </member>
+        <member name="M:FinanceKeeper.Controllers.FinancialCategoryController.DeleteCategoryAsync(System.Int32)">
+            <summary>
+            Delete entry of categories from DB
+            </summary>
+            <param name="categoryId">Id of category</param>
+            <returns>Boolean result from removing</returns>
+        </member>
+        <member name="M:FinanceKeeper.Controllers.FinancialCategoryController.GetAllCategories">
+            <summary>
+            Show all an existing entries of categories into DB
+            </summary>
+            <returns>List of categories</returns>
+        </member>
+        <member name="M:FinanceKeeper.Controllers.FinancialCategoryController.GetCategoryById(System.Int32)">
+            <summary>
+            Show existing entries of category by categoryId into DB
+            </summary>
+            <param name="categoryId">Id of category</param>
+            <returns>Category that matched the id</returns>
+        </member>
+        <member name="M:FinanceKeeper.Controllers.FinancialOperationController.CreateOperationAsync(FinanceKeeper.Dtos.FinancialOperationDto)">
+            <summary>
+            Create new entry about operation into DB
+            </summary>
+            <param name="operation">Entry of operation</param>
+            <returns>Return response than entry were write</returns>
+        </member>
+        <member name="M:FinanceKeeper.Controllers.FinancialOperationController.UpdateOperationAsync(FinanceKeeper.Dtos.FinancialOperationDto)">
+            <summary>
+            Updates an existing entry of operation in the DB
+            </summary>
+            <param name="operation">Entry of operation</param>
+            <returns>Updated entry of operation</returns>
+        </member>
+        <member name="M:FinanceKeeper.Controllers.FinancialOperationController.DeleteOperationAsync(System.Int32)">
+            <summary>
+            Delete entry of operation from DB
+            </summary>
+            <param name="operationId">Id of operation</param>
+            <returns>Boolean result from removing</returns>
+        </member>
+        <member name="M:FinanceKeeper.Controllers.FinancialOperationController.GetAllOperations">
+            <summary>
+            Show all an existing entries of operations into DB
+            </summary>
+            <returns>List of operations</returns>
+        </member>
+        <member name="M:FinanceKeeper.Controllers.FinancialOperationController.GetOperationById(System.Int32)">
+            <summary>
+            Show existing entries of operation by categoryId into DB
+            </summary>
+            <param name="operationId">Id of operation</param>
+            <returns>Operation that matched the id</returns>
+        </member>
+        <member name="M:FinanceKeeper.Controllers.MoneyReportController.GetDayReport(System.String)">
+            <summary>
+            Get report of financial operations on a given day
+            </summary>
+            <param name="date">A day to do report</param>
+            <returns>Money Report by day</returns>
+        </member>
+        <member name="M:FinanceKeeper.Controllers.MoneyReportController.GetPeriodReport(System.String,System.String)">
+            <summary>
+            Get report of financial operations by period
+            </summary>
+            <param name="startDay">Start period day</param>
+            <param name="endDay">Close period day</param>
+            <returns>Money report by period</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,30 @@
+﻿@page "/moneyreport/periodreport"
+
+<h1>Period report</h1>
+
+<div class="row">
+    <div class="col">
+        <h1>Day Report</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <span>Chose Date:</span>
+    </div>
+    <div class="col-3">
+        <span>Date From:</span>
+        <input type="date"  @bind-value="@DateFrom">
+    </div>
+    <div class="col-3">
+        <span>Date To:</span>
+        <input type="date"  @bind-value="@DateTo">
+    </div>
+    <button class="btn btn-success" @onclick="GetReport">Report</button>
+</div>
+
+
+@if (ShowTable)
+{
+    <ReportTable Report="Report"/>
+    
+}

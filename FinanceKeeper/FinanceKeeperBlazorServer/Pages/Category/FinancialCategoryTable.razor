@@ -1,0 +1,39 @@
+﻿<div class="col-8">
+    <a href="/financialcategory/addcategory">Add new</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-primary text-center">
+        <thead>
+        <tr>
+            <th class="col-6">Id</th>
+            <th class="col-6">Name</th>
+            <th class="col-6">Type</th>
+            <th class="col-6">Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Categories == null)
+        {
+            <tr>
+                <th>No item in array</th>
+            </tr>
+        }
+        else
+        {
+            @foreach (var item in Categories)
+            {
+                <tr>
+                    <th class="text-success" name="Id">@item.CategoryId</th>
+                    <th class="text-success" name="Name">@item.Name</th>
+                    <th class="text-success" name="Type">@item.Type</th>
+
+                    <th><a href="/financialcategory/editcategory/@item.CategoryId">Edit</a>
+                    <button class="btn btn-close" @onclick="(() => Delete(item.CategoryId))"></button></th>
+                </tr>
+
+            }
+        }
+        </tbody>
+    </table>
+</div>
